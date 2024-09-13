@@ -1,29 +1,26 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
-void multiplicarVetor(int vetor[], int tamanho, int X) {
+void multiplicarVetor(int* vetor, int tamanho, int X) {
     for (int i = 0; i < tamanho; i++) {
         vetor[i] *= X;
     }
 }
 
-void imprimirVetor(int vetor[], int tamanho) {
-    for (int i = 0; i < tamanho; i++) {
-        printf("%d ", vetor[i]);
+void imprimirVetorReverso(int* vetor, int tamanho) {
+    for (int i = tamanho - 1; i >= 0; i--) {
+        cout << vetor[i] << " ";
     }
-    printf("\n");
+    cout << endl;
 }
 
 int main() {
     int vetor[] = {1, 2, 3, 4, 5};
     int tamanho = sizeof(vetor) / sizeof(vetor[0]);
-    int X;
-
-    printf("Digite o valor de X: ");
-    scanf("%d", &X);
+    int X = 2;
 
     multiplicarVetor(vetor, tamanho, X);
-    printf("Vetor após multiplicação:\n");
-    imprimirVetor(vetor, tamanho);
+    imprimirVetorReverso(vetor, tamanho);
 
     return 0;
 }
